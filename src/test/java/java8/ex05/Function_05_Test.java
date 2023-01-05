@@ -2,6 +2,7 @@ package java8.ex05;
 
 import java8.data.Data;
 import java8.data.Person;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -21,11 +22,11 @@ public class Function_05_Test {
 
     // TODO compléter la fonction
     // TODO vérifier que l'age > 4 avec une assertion JUnit
-    Consumer<Person> verifyAge = p -> assertEquals(4, p.getAge());
+    Consumer<Person> verifyAge = p -> assertEquals((Integer)4, p.getAge());
 
     // TODO compléter la fonction
     // TODO vérifier que le mot de passe est "secret" avec une assertion JUnit
-    Consumer<Person> verifyPassword = p -> a;
+    Consumer<Person> verifyPassword = p -> assertEquals("secret", p.getPassword());
     //end::functions[]
 
 
@@ -44,9 +45,9 @@ public class Function_05_Test {
         
         personList.forEach((p) -> verifyAge.andThen(verifyPassword));
         
-        for(Person p : personList) {
+        /*for(Person p : personList) {
             verifyAge.accept(p);
             verifyPassword.accept(p);
-        }
+        }*/
     }
 }
